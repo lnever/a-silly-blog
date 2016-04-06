@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+ 
+{% block title %} New Article {% endblock %}   
+ 
+{% block content %} 
+ 
+<form action="" method="post">
+    {% csrf_token %} 
+    <div class="field">
+        <p><label for="id_caption">Title :  </label></p>
+        {% if form.caption.errors %}
+        <div class="alert alert-error">
+            {{ form.caption.errors }}          
+        </div>
+        {% endif %}
+        {{ form.caption }}
+    </div>
+    <br>
+    <br>
+    <div class="field">        
+        <p><label for="id_content">Content: </label></p>
+        {% if form.content.errors %}
+        <div class="alert alert-error">
+            {{ form.content.errors }}
+        </div>
+        {% endif %}
+        {{ form.content }}
+    </div>
+    <br><br>
+    <div class="form-actions" align="left">
+        <input class="btn btn-primary" type="submit" value="Save">
+    </div>
+</form>
+{% endblock %}

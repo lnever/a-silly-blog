@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>
+        {% block title %}{% endblock %}        
+    </title>
+</head>
+{% load static from staticfiles %}
+{% static 'sblog/img/jj_ta.jpg' as myphoto %}
+ <style type="text/css">
+       body 
+       {
+            background-image: url({{myphoto}});
+            background-repeat:no-repeat;
+        }
+    </style>
+<body>
+    <h1>  
+        Lnever &nbsp;&nbsp;&nbsp;
+        <a href="{% url 'home' %}" style="font-size:26px">       [   Home  ]</a> &nbsp;&nbsp;                      
+        <a href="{% url 'blog_list' %} "style="font-size:26px">   [  Articles ] </a>&nbsp;&nbsp;
+        <a href="{% url 'blog_add' %} "style="font-size:26px">   [  New ]</a>                                        
+    </h1>
+    <div> 
+        
+        <p  style="text-align:right;">
+            <a href="https://docs.djangoproject.com/en/1.9/">  << powered by django. </a>
+        </p>
+    </div>
+    {% block content %}
+    {% endblock %}
+    {% block footer %}
+    {# 任何每个页面都可能修改的文本区域的页脚 #}
+        
+    {% endblock %}
+    <div>
+        
+    </div>
+</body>
+</html>
+

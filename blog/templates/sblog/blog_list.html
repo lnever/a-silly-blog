@@ -1,0 +1,14 @@
+{%extends "base.html" %}
+ 
+{% block title %} Article List {% endblock %}
+ 
+{% block content %}
+<div class="content">
+<h5>-------------------------------------------------------------------------------------------<h5>
+    {% for blog in blogs %}
+
+        <h3> <a href="{% url 'blog_show' blog.id%}">{{blog.caption}} </a>  </h3>
+        <h5>-------------------------------------------------------------------------------------------<h5>
+    {% endfor %}    
+</div>    
+{% endblock %}

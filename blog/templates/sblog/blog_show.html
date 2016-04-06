@@ -1,0 +1,17 @@
+{%extends "base.html" %}
+ 
+{% block title %} {{ blog.caption }} {% endblock %}
+ 
+{% block content %}
+<div class="content">
+    <h2>#{{ blog.caption }}</h2>
+    
+<h5>-------------------------------------------------------------------------------------------<h5>
+<br>
+    <div>{{ blog.content }} </div>
+</div>    
+<br><br>
+<h5>-------------------------------------------------------------------------------------------<h5>
+<a href="{% url 'blog_edit' blog.id%}"><input type="button" value="Edit"> </a>
+<a href="{% url 'blog_del' blog.id%}"><input type="button" value="Delete"> </a>
+{% endblock %}
